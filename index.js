@@ -64,4 +64,13 @@
         styleEl.textContent = darkModeCSS;
         document.documentElement.appendChild(styleEl);
     }
+
+    function setDarkMode(enabled) {
+        injectStylesheet();
+        document.documentElement.classList.toggle(HTML_CLASS, enabled);
+    }
+
+    function isDarkModeEnabled() {
+        return document.documentElement.classList.contains(HTML_CLASS);
+    }
 })();
