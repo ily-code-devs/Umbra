@@ -1,0 +1,10 @@
+{
+  "name": "Umbra - Dark mode for Moodle HTL Leonding",
+  "description": "Switch themes for the HTL Leonding Moodle page",
+  "version": "1.0",
+  "manifest_version": 3,
+  "action": {
+    "default_popup": "index.html",
+    "default_icon": "logo.png"
+  }
+}
