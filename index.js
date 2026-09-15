@@ -56,4 +56,12 @@
       -webkit-filter: none !important;
     }
   `;
+
+    function injectStylesheet() {
+        if (document.getElementById(STYLE_ID)) return;
+        const styleEl = document.createElement("style");
+        styleEl.id = STYLE_ID;
+        styleEl.textContent = darkModeCSS;
+        document.documentElement.appendChild(styleEl);
+    }
 })();
