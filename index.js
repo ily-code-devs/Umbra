@@ -73,4 +73,15 @@
     function isDarkModeEnabled() {
         return document.documentElement.classList.contains(HTML_CLASS);
     }
+
+    function loadSavedState() {
+        chrome.storage.local.get([STORAGE_KEY], (result) => {
+            const enabled = !!result[STORAGE_KEY];
+            setDarkMode(enabled);
+        });
+    }
+
+    function saveState(enabled) {
+        chrome.storage.local.set({ [STORAGE_KEY]: enabled });
+    }
 })();
