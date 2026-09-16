@@ -101,4 +101,12 @@
         return true;
     });
 
+    const observer = new MutationObserver(() => {
+        chrome.storage.local.get([STORAGE_KEY], (result) => {
+            if (result[STORAGE_KEY] && !isDarkModeEnabled()) {
+                setDarkMode(true);
+            }
+        });
+    });
+
 })();
