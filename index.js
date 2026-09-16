@@ -84,4 +84,21 @@
     function saveState(enabled) {
         chrome.storage.local.set({ [STORAGE_KEY]: enabled });
     }
+
+    chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
+        if (message.action === "umbra-toggle") {
+            const newState = !isDarkModeEnabled();
+            setDarkMode(newState);
+            saveState(newState);
+            sendResponse({ enabled: newState });
+        } else if (message.action === "umbra-set") {
+            setDarkMode(!!message.enabled);
+            saveState(!!message.enabled);
+            sendResponse({ enabled: !!message.enabled });
+        } else if (message.action === "umbra-get-state") {
+            sendResponse({ enabled: isDarkModeEnabled() });
+        }
+        return true;
+    });
+
 })();
