@@ -3,8 +3,19 @@
   "description": "Switch themes for the HTL Leonding Moodle page",
   "version": "1.0",
   "manifest_version": 3,
+  "permissions": ["storage", "activeTab"],
   "action": {
     "default_popup": "index.html",
-    "default_icon": "logo.png"
-  }
+    "default_icon": "icons/icon-master1.png"
+  },
+  "icons": {
+    "128": "icons/icon-master1.png"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["index.js"],
+      "run_at": "document_start"
+    }
+  ]
 }
