@@ -1,10 +1,160 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <title>Umbra</title>
+    <link rel="stylesheet" href="pop.css">
 </head>
 <body>
-<h1>Umbra</h1>
+
+<header>
+    <svg class="logoImg" width="40" height="40" viewBox="0 0 512 512" fill="none">
+        <defs>
+            <linearGradient id="bg" x1="0" y1="0" x2="512" y2="512" gradientUnits="userSpaceOnUse"><stop stop-color="#2E2456"/><stop offset=".5" stop-color="#171935"/><stop offset="1" stop-color="#0A0B17"/></linearGradient>
+            <linearGradient id="moon" x1="128" y1="106" x2="341" y2="390" gradientUnits="userSpaceOnUse"><stop stop-color="#FBF8FF"/><stop offset=".42" stop-color="#CBBAFF"/><stop offset="1" stop-color="#8A6FF2"/></linearGradient>
+            <radialGradient id="glow" cx="0" cy="0" r="1" gradientTransform="translate(256 256) scale(312.4)"><stop stop-color="#9B7CFF" stop-opacity=".38"/><stop offset=".45" stop-color="#9B7CFF" stop-opacity=".12"/><stop offset="1" stop-color="#9B7CFF" stop-opacity="0"/></radialGradient>
+            <linearGradient id="ring" x1="64" y1="64" x2="448" y2="448" gradientUnits="userSpaceOnUse"><stop stop-color="#CBBAFF" stop-opacity=".9"/><stop offset=".55" stop-color="#8A6FF0" stop-opacity=".45"/><stop offset="1" stop-color="#8A6FF0" stop-opacity=".12"/></linearGradient>
+        </defs>
+        <rect width="512" height="512" rx="112" fill="url(#bg)"/>
+        <rect width="512" height="512" rx="112" fill="url(#glow)"/>
+        <rect x="1.54" y="1.54" width="508.93" height="508.93" rx="110.46" stroke="#CBBAFF" stroke-opacity=".22" stroke-width="3.07"/>
+        <circle cx="256" cy="256" r="192" stroke="url(#ring)" stroke-width="9"/>
+        <path d="M345 143C345 158.6 349.4 163 365 163C349.4 163 345 167.4 345 183C345 167.4 340.6 163 325 163C340.6 163 345 158.6 345 143Z" fill="#FBF8FF"/>
+        <path d="M392 204C392 211.8 394.2 214 402 214C394.2 214 392 216.2 392 224C392 216.2 389.8 214 382 214C389.8 214 392 211.8 392 204Z" fill="#FBF8FF" fill-opacity=".8"/>
+        <path d="M322 226.5C322 230.79 323.21 232 327.5 232C323.21 232 322 233.21 322 237.5C322 233.21 320.79 232 316.5 232C320.79 232 322 230.79 322 226.5Z" fill="#FBF8FF" fill-opacity=".45"/>
+        <path d="M387.12 328.3A142 142 0 1 1 202.38 123.13A150 150 0 0 0 387.12 328.3Z" fill="url(#moon)"/>
+    </svg>
+    <div class="headerText">
+        <h1 class="name">Umbra</h1>
+        <p class="textUnderName">Dark mode extension</p>
+    </div>
+    <button class="menuIcon" id="btnMenu" type="button" aria-label="More options"></button>
+</header>
+
+<section class="section-appearance">
+    <h2 class="appearance-title">Appearance</h2>
+
+    <div class="changing-field">
+        <div class="preview-image" id="preview-image" aria-hidden="true">
+            <svg class="icon-sun" width="48" height="48" viewBox="0 0 48 48" fill="none">
+                <defs>
+                    <radialGradient id="sCore" cx="0" cy="0" r="1" gradientTransform="translate(19.5 19) scale(20.5)"><stop stop-color="#FFFBE8"/><stop offset=".38" stop-color="#FFE08A"/><stop offset=".76" stop-color="#FFC145"/><stop offset="1" stop-color="#F0972A"/></radialGradient>
+                    <linearGradient id="sRay" x1="10" y1="9" x2="38" y2="39" gradientUnits="userSpaceOnUse"><stop stop-color="#FFD86B"/><stop offset=".55" stop-color="#FFC145"/><stop offset="1" stop-color="#F0972A"/></linearGradient>
+                    <linearGradient id="sRim" x1="13" y1="13" x2="31" y2="33" gradientUnits="userSpaceOnUse"><stop stop-color="#FFFFFF" stop-opacity=".9"/><stop offset="1" stop-color="#FFFFFF" stop-opacity="0"/></linearGradient>
+                    <radialGradient id="sGlow" cx="0" cy="0" r="1" gradientTransform="translate(24 24) scale(24)"><stop stop-color="#FFC24D" stop-opacity=".45"/><stop offset=".45" stop-color="#FFC24D" stop-opacity=".14"/><stop offset="1" stop-color="#FFC24D" stop-opacity="0"/></radialGradient>
+                </defs>
+                <circle cx="24" cy="24" r="24" fill="url(#sGlow)"/>
+                <g fill="url(#sRay)"><path d="M22.68 13.08Q22.84 4.77 24 1.6Q25.16 4.77 25.32 13.08A11 11 0 0 0 22.68 13.08Z"/><path d="M30.98 15.5Q34.28 12.66 36.59 11.41Q35.34 13.72 32.5 17.02A11 11 0 0 0 30.98 15.5Z"/><path d="M34.92 22.68Q43.23 22.84 46.4 24Q43.23 25.16 34.92 25.32A11 11 0 0 0 34.92 22.68Z"/><path d="M32.5 30.98Q35.34 34.28 36.59 36.59Q34.28 35.34 30.98 32.5A11 11 0 0 0 32.5 30.98Z"/><path d="M25.32 34.92Q25.16 43.23 24 46.4Q22.84 43.23 22.68 34.92A11 11 0 0 0 25.32 34.92Z"/><path d="M17.02 32.5Q13.72 35.34 11.41 36.59Q12.66 34.28 15.5 30.98A11 11 0 0 0 17.02 32.5Z"/><path d="M13.08 25.32Q4.77 25.16 1.6 24Q4.77 22.84 13.08 22.68A11 11 0 0 0 13.08 25.32Z"/><path d="M15.5 17.02Q12.66 13.72 11.41 11.41Q13.72 12.66 17.02 15.5A11 11 0 0 0 15.5 17.02Z"/></g>
+                <circle cx="24" cy="24" r="11.4" fill="url(#sCore)"/>
+                <circle cx="24" cy="24" r="10.8" stroke="url(#sRim)" stroke-width="1.5"/>
+                <ellipse cx="19.8" cy="19.4" rx="4.6" ry="3.8" transform="rotate(-35 19.8 19.4)" fill="#FFFFFF" fill-opacity=".38"/>
+            </svg>
+            <svg class="icon-moon" width="48" height="48" viewBox="0 0 48 48" fill="none">
+                <defs>
+                    <linearGradient id="mBody" x1="9" y1="10" x2="34" y2="41" gradientUnits="userSpaceOnUse"><stop stop-color="#FFFFFF"/><stop offset=".35" stop-color="#F0EBFF"/><stop offset=".72" stop-color="#C7B8F2"/><stop offset="1" stop-color="#9C86E0"/></linearGradient>
+                    <linearGradient id="mRim" x1="10" y1="12" x2="26" y2="38" gradientUnits="userSpaceOnUse"><stop stop-color="#FFFFFF" stop-opacity=".95"/><stop offset="1" stop-color="#FFFFFF" stop-opacity="0"/></linearGradient>
+                    <radialGradient id="mCrater" cx="0" cy="0" r="1" gradientTransform="translate(-.35 -.35) scale(1.5)"><stop stop-color="#8E78D6" stop-opacity=".42"/><stop offset="1" stop-color="#8E78D6" stop-opacity=".14"/></radialGradient>
+                    <radialGradient id="mGlow" cx="0" cy="0" r="1" gradientTransform="translate(22 25) scale(23)"><stop stop-color="#B9A6FF" stop-opacity=".42"/><stop offset=".5" stop-color="#B9A6FF" stop-opacity=".12"/><stop offset="1" stop-color="#B9A6FF" stop-opacity="0"/></radialGradient>
+                    <clipPath id="mClip"><path d="M42.66 30.73A19.84 19.84 0 1 1 15.35 6.14A19.2 19.2 0 0 0 42.66 30.73Z"/></clipPath>
+                </defs>
+                <circle cx="22" cy="25" r="23" fill="url(#mGlow)"/>
+                <path d="M42.66 30.73A19.84 19.84 0 1 1 15.35 6.14A19.2 19.2 0 0 0 42.66 30.73Z" fill="url(#mBody)"/>
+                <g clip-path="url(#mClip)">
+                    <circle cx="12.48" cy="29.38" r="4.1" fill="url(#mCrater)"/>
+                    <path d="M9.53 32.33A4.1 4.1 0 0 0 15.43 26.43" stroke="#FFFFFF" stroke-opacity=".5" stroke-width="1.15" fill="none" stroke-linecap="round"/>
+                    <circle cx="9.66" cy="18.37" r="2.69" fill="url(#mCrater)"/>
+                    <path d="M7.73 20.3A2.69 2.69 0 0 0 11.6 16.43" stroke="#FFFFFF" stroke-opacity=".5" stroke-width="0.75" fill="none" stroke-linecap="round"/>
+                    <circle cx="19.65" cy="36.8" r="2.43" fill="url(#mCrater)"/>
+                    <path d="M17.9 38.55A2.43 2.43 0 0 0 21.4 35.05" stroke="#FFFFFF" stroke-opacity=".5" stroke-width="0.68" fill="none" stroke-linecap="round"/>
+                    <circle cx="16.58" cy="23.49" r="1.54" fill="url(#mCrater)"/>
+                    <path d="M15.47 24.59A1.54 1.54 0 0 0 17.68 22.38" stroke="#FFFFFF" stroke-opacity=".5" stroke-width="0.43" fill="none" stroke-linecap="round"/>
+                </g>
+                <path d="M42.66 30.73A19.84 19.84 0 1 1 15.35 6.14A19.2 19.2 0 0 0 42.66 30.73Z" stroke="url(#mRim)" stroke-width="1.47" fill="none"/>
+            </svg>
+        </div>
+
+        <div class="mode-buttons">
+            <button class="mode-btn is-active" type="button" data-mode="light">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="4.4"/>
+                    <path d="M12 4L12 1.6"/><path d="M17.66 6.34L19.35 4.65"/><path d="M20 12L22.4 12"/>
+                    <path d="M17.66 17.66L19.35 19.35"/><path d="M12 20L12 22.4"/><path d="M6.34 17.66L4.65 19.35"/>
+                    <path d="M4 12L1.6 12"/><path d="M6.34 6.34L4.65 4.65"/>
+                </svg>
+                Light
+            </button>
+
+            <button class="mode-btn" type="button" data-mode="dark">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M20.18 14.65A8.6 8.6 0 1 1 8.51 4.14A8.3 8.3 0 0 0 20.18 14.65Z"/>
+                </svg>
+                Dark
+            </button>
+        </div>
+    </div>
+</section>
+
+<section class="section-web-sites">
+    <div class="section-header">
+        <h2 class="section-title">Web sites</h2>
+        <button class="icon-btn add-btn" id="btn-add-site" type="button" aria-label="Add website">
+            <svg width="25" height="25" viewBox="0 0 25 25" fill="none">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M12.0369 8.71262C12.4511 8.71262 12.7869 9.0484 12.7869 9.46262V16.611C12.7869 17.0253 12.4511 17.361 12.0369 17.361C11.6227 17.361 11.2869 17.0253 11.2869 16.611V9.46262C11.2869 9.0484 11.6227 8.71262 12.0369 8.71262Z" fill="currentColor"/>
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M7.70886 13.0368C7.70886 12.6226 8.04465 12.2868 8.45886 12.2868H15.6147C16.0289 12.2868 16.3647 12.6226 16.3647 13.0368C16.3647 13.451 16.0289 13.7868 15.6147 13.7868H8.45886C8.04465 13.7868 7.70886 13.451 7.70886 13.0368Z" fill="currentColor"/>
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M4.96051 5.96045C3.66147 7.25949 3.05005 9.42738 3.05005 13.0368C3.05005 16.6463 3.66147 18.8142 4.96051 20.1132C6.25956 21.4123 8.42744 22.0237 12.0369 22.0237C15.6463 22.0237 17.8142 21.4123 19.1133 20.1132C20.4123 18.8142 21.0237 16.6463 21.0237 13.0368C21.0237 9.42738 20.4123 7.25949 19.1133 5.96045C17.8142 4.6614 15.6463 4.04999 12.0369 4.04999C8.42744 4.04999 6.25956 4.6614 4.96051 5.96045ZM3.89985 4.89979C5.6437 3.15594 8.34424 2.54999 12.0369 2.54999C15.7295 2.54999 18.4301 3.15594 20.1739 4.89979C21.9178 6.64364 22.5237 9.34418 22.5237 13.0368C22.5237 16.7295 21.9178 19.43 20.1739 21.1739C18.4301 22.9177 15.7295 23.5237 12.0369 23.5237C8.34424 23.5237 5.6437 22.9177 3.89985 21.1739C2.156 19.43 1.55005 16.7295 1.55005 13.0368C1.55005 9.34418 2.156 6.64364 3.89985 4.89979Z" fill="currentColor"/>
+            </svg>
+        </button>
+    </div>
+
+    <div class="website-row">
+        <button class="icon-btn delete-btn" id="btn-delete-site" type="button" aria-label="Delete website">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M16.3249,7.4682 C16.3249,7.4682 15.7819,14.2032 15.4669,17.0402 C15.3169,18.3952 14.4799,19.1892 13.1089,19.2142 C10.4999,19.2612 7.8879,19.2642 5.2799,19.2092 C3.9609,19.1822 3.1379,18.3782 2.9909,17.0472 C2.6739,14.1852 2.1339,7.4682 2.1339,7.4682" transform="translate(3, 2)"/>
+                <line x1="20.7082" y1="6.2397" x2="3.7502" y2="6.2397"/>
+                <path d="M17.4406,6.2397 C16.6556,6.2397 15.9796,5.6847 15.8256,4.9157 L15.5826,3.6997 C15.4326,3.1387 14.9246,2.7507 14.3456,2.7507 L10.1126,2.7507 C9.5336,2.7507 9.0256,3.1387 8.8756,3.6997 L8.6326,4.9157 C8.4786,5.6847 7.8026,6.2397 7.0176,6.2397"/>
+            </svg>
+        </button>
+        <span class="website-name">github.com</span>
+        <input type="checkbox" checked>
+    </div>
+</section>
+
+<section class="section-on-the-way">
+    <h2 class="section-title">On the way</h2>
+
+    <div class="soon-cards-container">
+        <div class="soon-card">
+            <button class="icon-btn plus-btn" type="button" disabled>
+                <svg width="25" height="25" viewBox="0 0 25 25" fill="none">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M12.0369 8.71262C12.4511 8.71262 12.7869 9.0484 12.7869 9.46262V16.611C12.7869 17.0253 12.4511 17.361 12.0369 17.361C11.6227 17.361 11.2869 17.0253 11.2869 16.611V9.46262C11.2869 9.0484 11.6227 8.71262 12.0369 8.71262Z" fill="currentColor"/>
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M7.70886 13.0368C7.70886 12.6226 8.04465 12.2868 8.45886 12.2868H15.6147C16.0289 12.2868 16.3647 12.6226 16.3647 13.0368C16.3647 13.451 16.0289 13.7868 15.6147 13.7868H8.45886C8.04465 13.7868 7.70886 13.451 7.70886 13.0368Z" fill="currentColor"/>
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M4.96051 5.96045C3.66147 7.25949 3.05005 9.42738 3.05005 13.0368C3.05005 16.6463 3.66147 18.8142 4.96051 20.1132C6.25956 21.4123 8.42744 22.0237 12.0369 22.0237C15.6463 22.0237 17.8142 21.4123 19.1133 20.1132C20.4123 18.8142 21.0237 16.6463 21.0237 13.0368C21.0237 9.42738 20.4123 7.25949 19.1133 5.96045C17.8142 4.6614 15.6463 4.04999 12.0369 4.04999C8.42744 4.04999 6.25956 4.6614 4.96051 5.96045ZM3.89985 4.89979C5.6437 3.15594 8.34424 2.54999 12.0369 2.54999C15.7295 2.54999 18.4301 3.15594 20.1739 4.89979C21.9178 6.64364 22.5237 9.34418 22.5237 13.0368C22.5237 16.7295 21.9178 19.43 20.1739 21.1739C18.4301 22.9177 15.7295 23.5237 12.0369 23.5237C8.34424 23.5237 5.6437 22.9177 3.89985 21.1739C2.156 19.43 1.55005 16.7295 1.55005 13.0368C1.55005 9.34418 2.156 6.64364 3.89985 4.89979Z" fill="currentColor"/>
+                </svg>
+            </button>
+            <div class="card-info">
+                <h3 class="card-title">Auto schedule</h3>
+                <p class="card-description">Follow sunrise and sunset</p>
+            </div>
+            <span class="badge-soon">Soon</span>
+        </div>
+
+        <div class="soon-card">
+            <button class="icon-btn plus-btn" type="button" disabled>
+                <svg width="25" height="25" viewBox="0 0 25 25" fill="none">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M12.0369 8.71262C12.4511 8.71262 12.7869 9.0484 12.7869 9.46262V16.611C12.7869 17.0253 12.4511 17.361 12.0369 17.361C11.6227 17.361 11.2869 17.0253 11.2869 16.611V9.46262C11.2869 9.0484 11.6227 8.71262 12.0369 8.71262Z" fill="currentColor"/>
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M7.70886 13.0368C7.70886 12.6226 8.04465 12.2868 8.45886 12.2868H15.6147C16.0289 12.2868 16.3647 12.6226 16.3647 13.0368C16.3647 13.451 16.0289 13.7868 15.6147 13.7868H8.45886C8.04465 13.7868 7.70886 13.451 7.70886 13.0368Z" fill="currentColor"/>
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M4.96051 5.96045C3.66147 7.25949 3.05005 9.42738 3.05005 13.0368C3.05005 16.6463 3.66147 18.8142 4.96051 20.1132C6.25956 21.4123 8.42744 22.0237 12.0369 22.0237C15.6463 22.0237 17.8142 21.4123 19.1133 20.1132C20.4123 18.8142 21.0237 16.6463 21.0237 13.0368C21.0237 9.42738 20.4123 7.25949 19.1133 5.96045C17.8142 4.6614 15.6463 4.04999 12.0369 4.04999C8.42744 4.04999 6.25956 4.6614 4.96051 5.96045ZM3.89985 4.89979C5.6437 3.15594 8.34424 2.54999 12.0369 2.54999C15.7295 2.54999 18.4301 3.15594 20.1739 4.89979C21.9178 6.64364 22.5237 9.34418 22.5237 13.0368C22.5237 16.7295 21.9178 19.43 20.1739 21.1739C18.4301 22.9177 15.7295 23.5237 12.0369 23.5237C8.34424 23.5237 5.6437 22.9177 3.89985 21.1739C2.156 19.43 1.55005 16.7295 1.55005 13.0368C1.55005 9.34418 2.156 6.64364 3.89985 4.89979Z" fill="currentColor"/>
+                </svg>
+            </button>
+            <div class="card-info">
+                <h3 class="card-title">Per-site tuning</h3>
+                <p class="card-description">Contrast, fonts and exceptions</p>
+            </div>
+            <span class="badge-soon">Soon</span>
+        </div>
+    </div>
+</section>
+
+<script src="popJs.js"></script>
 </body>
 </html>
